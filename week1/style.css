@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header div.sitename {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav div.item {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  margin-right: 10px;
+  display: block;
+}
+
+header nav img {
+  display: none;
+}
+
+div.banner {
+  height: 250px;
+  background-color: #ccc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+div.banner h1 {
+  font-size: 2rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main div.up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main div.up div.upCard1,
+main div.up div.upCard2,
+main div.up div.upCard3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+  background-color: #ccc;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+main div.up div.upCard1 img,
+main div.up div.upCard2 img,
+main div.up div.upCard3 img {
+  width: 80px;
+  height: 50px;
+  background-size: cover;
+}
+
+main div.up div.upCard1 p,
+main div.up div.upCard2 p,
+main div.up div.upCard3 p {
+  padding-left: 5px;
+}
+
+main div.up div.upCard1,
+main div.up div.upCard2 {
+  margin-right: 20px;
+}
+
+main div.down {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main div.down div.card1,
+main div.down div.card2,
+main div.down div.card3,
+main div.down div.card4,
+main div.down div.card5,
+main div.down div.card6,
+main div.down div.card7,
+main div.down div.card8,
+main div.down div.card9,
+main div.down div.card10,
+main div.down div.card11,
+main div.down div.card12 {
+  background-color: #ccc;
+  width: calc(1100px / 6);
+  margin-bottom: 20px;
+}
+
+main div.down div.card1 img,
+main div.down div.card2 img,
+main div.down div.card3 img,
+main div.down div.card4 img,
+main div.down div.card5 img,
+main div.down div.card6 img,
+main div.down div.card7 img,
+main div.down div.card8 img,
+main div.down div.card9 img,
+main div.down div.card10 img,
+main div.down div.card11 img,
+main div.down div.card12 img {
+  width: 100%;
+  background-size: cover;
+}
+
+main div.down div.card1 p,
+main div.down div.card2 p,
+main div.down div.card3 p,
+main div.down div.card4 p,
+main div.down div.card5 p,
+main div.down div.card6 p,
+main div.down div.card7 p,
+main div.down div.card8 p,
+main div.down div.card9 p,
+main div.down div.card10 p,
+main div.down div.card11 p,
+main div.down div.card12 p {
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    width: 90%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main div.up {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main div.up div.upCard1,
+  main div.up div.upCard2 {
+    width: 45%;
+  }
+  main div.up div.upCard2 {
+    margin-right: 0px;
+  }
+  main div.down div.card1,
+  main div.down div.card2,
+  main div.down div.card3,
+  main div.down div.card4,
+  main div.down div.card5,
+  main div.down div.card6,
+  main div.down div.card7,
+  main div.down div.card8,
+  main div.down div.card9,
+  main div.down div.card10,
+  main div.down div.card11,
+  main div.down div.card12 {
+    width: calc(90% / 4);
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header nav div.item {
+    display: none;
+  }
+  header nav img {
+    display: block;
+  }
+  main {
+    width: 90%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main div.up {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main div.up div.upCard1,
+  main div.up div.upCard2,
+  main div.up div.upCard3 {
+    width: 90%;
+  }
+  main div.up div.upCard1,
+  main div.up div.upCard2 {
+    margin-right: 0px;
+  }
+  main div.down div.card1,
+  main div.down div.card2,
+  main div.down div.card3,
+  main div.down div.card4,
+  main div.down div.card5,
+  main div.down div.card6,
+  main div.down div.card7,
+  main div.down div.card8,
+  main div.down div.card9,
+  main div.down div.card10,
+  main div.down div.card11,
+  main div.down div.card12 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

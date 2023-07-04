@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  div.sitename {
+    flex: none;
+  }
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    flex: auto;
+    align-items: center;
+    div.item {
+      flex: none;
+      margin-right: 10px;
+      display: block;
+    }
+    img {
+      display: none;
+    }
+  }
+}
+
+div.banner {
+  height: 250px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  div.up {
+    display: flex;
+
+    div.upCard1,
+    div.upCard2,
+    div.upCard3 {
+      display: flex;
+      height: 50px;
+      align-items: center;
+      margin-bottom: 20px;
+      background-color: #ccc;
+      flex: auto;
+      img {
+        width: 80px;
+        height: 50px;
+        background-size: cover;
+      }
+      p {
+        padding-left: 5px;
+      }
+    }
+    div.upCard1,
+    div.upCard2 {
+      margin-right: 20px;
+    }
+  }
+  div.down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    div.card1,
+    div.card2,
+    div.card3,
+    div.card4,
+    div.card5,
+    div.card6,
+    div.card7,
+    div.card8,
+    div.card9,
+    div.card10,
+    div.card11,
+    div.card12 {
+      background-color: #ccc;
+      width: calc(1100px / 6);
+      margin-bottom: 20px;
+
+      img {
+        width: 100%;
+        background-size: cover;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    width: 90%;
+    flex-wrap: wrap;
+    div.up {
+      flex-wrap: wrap;
+
+      div.upCard1,
+      div.upCard2 {
+        width: 45%;
+      }
+      div.upCard2 {
+        margin-right: 0px;
+      }
+    }
+    div.down {
+      div.card1,
+      div.card2,
+      div.card3,
+      div.card4,
+      div.card5,
+      div.card6,
+      div.card7,
+      div.card8,
+      div.card9,
+      div.card10,
+      div.card11,
+      div.card12 {
+        width: calc(90% / 4);
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    nav {
+      div.item {
+        display: none;
+      }
+      img {
+        display: block;
+      }
+    }
+  }
+  main {
+    width: 90%;
+    flex-wrap: wrap;
+    div.up {
+      flex-wrap: wrap;
+
+      div.upCard1,
+      div.upCard2,
+      div.upCard3 {
+        width: 90%;
+      }
+      div.upCard1,
+      div.upCard2 {
+        margin-right: 0px;
+      }
+    }
+    div.down {
+      div.card1,
+      div.card2,
+      div.card3,
+      div.card4,
+      div.card5,
+      div.card6,
+      div.card7,
+      div.card8,
+      div.card9,
+      div.card10,
+      div.card11,
+      div.card12 {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
