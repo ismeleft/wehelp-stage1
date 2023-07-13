@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("==== 第一題：====")
+        function findAndPrint(messages){
+            let over_17=[];
+
+            for(let name in messages){
+                let message = messages[name];
+
+                if (message.includes("18 years old")||message.includes("college student")||message.includes("legal age")||message.includes("vote")){
+                    over_17.push(name);}
+
+            }
+            for (let name of over_17) {
+                console.log(name);
+            }
+        }
+
+        findAndPrint({"Bob":"My name is Bob. I'm 18 years old.", 
+        "Mary":"Hello, glad to meet you.",
+        "Copper":"I'm a college student. Nice to meet you.", 
+        "Leslie":"I am of legal age in Taiwan.",
+        "Vivian":"I will vote for Donald Trump next week",
+        "Jenny":"Good morning." });
+
+
+
+
+
+        console.log("==== 第二題：====")
+
+        function calculateSumOfBonus(data){
+            // 根據薪水跟表現、職位來計算獎金，並要求獎金總合不能超過台幣10000
+            // 故獎金發放規則為表現平均0.07個月薪，表現低於平均0.03個月薪，表現高於平均0.1個月薪，職位獎金CEO為bonus＊1.2
+            // 將薪水計算成台幣，利用匯率為30
+            // 將薪水（字串轉為數字）
+            // 利用if判斷式將表現狀況與月薪、職位做換算為獎金
+            // 逐一印出獎金後相加
+            let exchangeRate=30
+            let totalBonus=0
+
+            for(let employee of data.employees){
+                let name =employee.name;
+                let salary =employee.salary;
+                let performance =employee.performance;
+                let role =employee.role;
+
+                if(typeof salary === "string"){
+                    if(salary.includes("USD")){
+                        salary=parseInt(salary.replace("USD","").trim())*exchangeRate;
+                    }else{
+                        salary=parseInt(salary.replace(",",""));
+                    }
+                }
+                
+                 
+                let bonus;
+                if(performance=="above average"){
+                    bonus=salary*0.1;
+                }else if(performance == "average"){
+                    bonus=salary*0.07;
+                    
+                }else{
+                    bonus=salary*0.03;
+                }
+                if(role == "CEO"){
+                    bonus*=1.2;
+                }else{
+                    bonus*=1;
+                }
+                totalBonus+=bonus
+            }
+            console.log(totalBonus);
+            
+            
+    } 
+        calculateSumOfBonus({
+            "employees":[ {
+                "name":"John", 
+                "salary":"1000USD", 
+                "performance":"above average", 
+                "role":"Engineer"},
+                {"name":"Bob", 
+                "salary":60000, 
+                "performance":"average", 
+                "role":"CEO"}, 
+                {"name":"Jenny", 
+                "salary":"50,000", 
+                "performance":"below average",
+                "role":"Sales"}]
+            }); // call calculateSumOfBonus function
+        
+        
+
+
+
+
+        console.log("==== 第三題：====")
+        function func(...data) {
+            let uniqueNames = [];
+            for (let i = 0; i < data.length; i++) {
+                let name = data[i];
+                let middleName = name[1];
+                let double = false;
+
+                for (let j = 0; j < data.length; j++) {
+                if (i !== j && data[j].includes(middleName)) {
+                    double = true;}
+                }
+
+                if (!double) {
+                uniqueNames.push(name);
+                }
+            }
+
+            if (uniqueNames.length > 0) {
+                for (let name of uniqueNames) {
+                console.log(name);
+                }
+            } else {
+                console.log("沒有");
+            }
+        }
+
+
+        func("彭大牆", "王明雅", "吳明");
+        func("郭靜雅", "王立強", "林靜宜", "郭立恆", "林花花");
+        func("郭宣雅", "林靜宜", "郭宣恆", "林靜花");
+
+        console.log("==== 第四題：====")
+        function get_number(index) {
+            if (index === 0) {
+                return 0;
+            }
+            if (index % 2 == 0) {
+                return get_number(index - 2) + 3;
+            }
+            if (index % 2 == 1) {
+                return get_number(index + 1) + 1;
+            }
+        }
+        console.log(get_number(1));   
+        console.log(get_number(5));   
+        console.log(get_number(10));  
+
+    </script>
+    
+</body>
+</html>
