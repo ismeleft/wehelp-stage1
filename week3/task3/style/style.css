@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+header nav.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav.navbar div.sitename {
+  margin-left: 20px;
+  font-size: 2rem;
+}
+
+header nav.navbar div.nav-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header nav.navbar div.nav-menu div.nav-item {
+  margin: 0px 20px;
+}
+
+header nav.navbar div.nav-menu div.nav-item a {
+  text-decoration: none;
+  color: black;
+}
+
+header nav.navbar div.hamburger {
+  display: none;
+}
+
+div.banner {
+  height: 250px;
+  background-color: #ccc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+}
+
+div.banner h1 {
+  font-size: 2rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main div.up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main div.up div.upCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ccc;
+  width: calc(1160px / 3);
+  margin-bottom: 20px;
+}
+
+main div.up div.upCard img {
+  width: 80px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main div.up div.upCard p {
+  padding-left: 5px;
+}
+
+main div.down {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main div.down div.card {
+  background-color: #ccc;
+  width: calc(1100px / 6);
+  margin-bottom: 20px;
+  height: 250px;
+}
+
+main div.down div.card img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 180px;
+}
+
+main div.down div.card p {
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    width: 90%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main div.up {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 0px 20px;
+  }
+  main div.up div.upCard {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+  }
+  main div.down div.card {
+    width: calc(90% / 4);
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header nav.navbar {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  header nav.navbar div.hamburger {
+    display: block;
+  }
+  header nav.navbar div.nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 55px;
+    gap: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: rgba(245, 222, 179, 0.5);
+    width: 100%;
+    text-align: center;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  header nav.navbar div.nav-menu div.nav-item {
+    border-bottom: 1px solid #313131;
+  }
+  header nav.navbar div.nav-menu.active {
+    left: 0;
+  }
+  header nav.navbar div.nav-item {
+    margin: 16px 0px;
+  }
+  main {
+    width: 90%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main div.up {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  main div.up div.upCard {
+    width: 100%;
+  }
+  main div.down div.card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
