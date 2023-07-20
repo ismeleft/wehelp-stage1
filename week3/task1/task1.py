@@ -1,4 +1,3 @@
-
 import csv
 import urllib.request as request
 import json
@@ -32,19 +31,26 @@ with open("mrt.csv", mode="w", encoding="utf-8")as file:
         items.append(dict)
 
     merged_data = {}
-    # 把相同捷運站的資料做分類，放到合併後的dict
+
     for item in items:
         mrt = item["MRT"]
         stitle = item["stitle"]
 
+        # 把空的mrt省略
+        if mrt == None:
+            continue
+        else:
+            merged_data[item["MRT"]] = []
+
+        # 把相同捷運站的資料做分類，放到合併後的dict
         if mrt in merged_data:
             merged_data[mrt].append(stitle)
         else:
             merged_data[mrt] = [stitle]
+    # print(merged_data)
 
-    for mergerd_item in merged_data.items():
-        # 逐一印出合併後的資料
-        print(mergerd_item)
+    # 整理merged_data中的資料，印出key & value
 
-        writer = csv.writer(file)
-        writer.writerow(mergerd_item)
+    for key, value in merged_data.items():
+        value = ','.join(value)
+        file.write(f"{key}, {value}\n")
