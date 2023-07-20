@@ -17,7 +17,7 @@ tapeilist = data["result"]["results"]
 with open("attraction.csv", mode="w", encoding="utf-8")as file:
     for information in tapeilist:
         lines = [information["stitle"]+",", information["address"][4:8]+",",
-                 information["longitude"]+","+"https", information["file"].split("https")[1]+"\n"]
+                 information["longitude"]+",", information["latitude"]+",", "https", information["file"].split("https")[1]+"\n"]
         file.writelines(lines)
 
 # mrt.csv需要取得捷運站名稱, 景點名稱一, 景點名稱二, 景點名稱三...
