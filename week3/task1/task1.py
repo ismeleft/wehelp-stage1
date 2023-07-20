@@ -22,26 +22,29 @@ with open("attraction.csv", mode="w", encoding="utf-8")as file:
 
 # mrt.csv需要取得捷運站名稱, 景點名稱一, 景點名稱二, 景點名稱三...
 with open("mrt.csv", mode="w", encoding="utf-8")as file:
-    # 先建一個空白的字典，放存在的捷運站為key，value則為空白
-    info = {}
+    items = []
     for information in tapeilist:
-        if information["MRT"] == None:
+        # 建立所有資料的dict
+        dict = {}
+        dict["MRT"] = information["MRT"]
+        dict["stitle"] = information["stitle"]
+        items.append(dict)
+
+    merged_data = {}
+    # 把相同捷運站的資料做分類，放到合併後的dict
+    for item in items:
+        mrt = item["MRT"]
+        stitle = item["stitle"]
+
+        if mrt in merged_data:
+            merged_data[mrt].append(stitle)
+        else:
+            merged_data[mrt] = [stitle]
+    print(merged_data)
+
+    for key, value in merged_data.items():
+        if key == None:
             continue
         else:
-            info[information["MRT"]] = []
-    print(info)
-
-    # 利用迴圈將對應的景點append進去info字典，作為value
-
-    for information in tapeilist:
-        if information["MRT"] == None:
-            continue
-        else:
-            info[information["MRT"]].append(information["stitle"])
-    print(info)
-
-    # 將info字典，逐一印出key & value
-
-    for key, value in info.items():
-        value = ','.join(value)
-        file.write(f"{key}, {value}\n")
+            value = ','.join(value)
+            file.write(f"{key},{value}\n")
