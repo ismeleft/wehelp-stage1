@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁：登入頁面</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            
+        }
+        div.banner{
+            display: flex;
+            background-color: rgb(69, 88, 82);
+            height: 20vh;
+            justify-content: center;
+            align-items: center;
+
+        }
+        h2{
+            color: white;
+            letter-spacing: 3px;
+        }
+        .login{
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 20vw;
+            border: 1px solid gray;
+            text-align: center;
+
+        }
+        .title{
+            padding: 10px;
+            background-color: rgb(97, 114, 109);
+            margin-bottom: 20px;    
+        }
+        h3{
+            color: white;
+            letter-spacing: 5px;
+        }
+        p{
+            font-size: 1rem;
+            color:rgb(82, 82, 82);
+        }
+        form{
+            margin: 20px 0px;
+        }
+        button{
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h2>歡迎光臨我的網站</h2>
+    </div>
+
+    <div class="login">
+        <div class="title">
+            <h3>歡迎光臨，請輸入帳號密碼</h3>
+        </div>    
+        <p>登入系統</p>
+        <form action="/signin", method="POST">
+            帳號 <input type="text" name="account" >
+            <br>
+            <br>
+            密碼 <input type="password" name="password">
+            <br>
+            <br>
+            <input type="checkbox" name="agree" id="agree">同意條款
+            <br>
+            <br>
+            <button id="loginBtn" type="button">登入</button>
+        </form>
+        
+    </div>
+    <script>
+            let check = document.getElementById("agree");
+            let loginBtn =document.getElementById("loginBtn");
+            loginBtn.addEventListener("click",()=>{
+                if (check.checked){
+                    document.querySelector("form").submit();
+                }else{
+                    alert("請勾選同意條款！")
+                }
+            })
+
+    </script>
+    
+
+
+</body>
+</html>
