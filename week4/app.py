@@ -22,10 +22,10 @@ def signin():
         return redirect("/member")
     # 如果帳號密碼其中一個為空，跳轉至錯誤頁面並提示用戶
     elif (account == "" or password == ""):
-        return redirect("/error?msg=帳號或密碼不得為空")
+        return redirect("/error?message=帳號或密碼不得為空")
     # 如果帳號密碼錯誤，跳轉至錯誤頁面並提示用戶
     else:
-        return redirect("/error?msg=請輸入正確的帳號和密碼")
+        return redirect("/error?message=請輸入正確的帳號和密碼")
 
 
 @app.route("/member")
@@ -39,7 +39,7 @@ def member():
 
 @app.route("/error")
 def error():
-    message = request.args.get("msg", "發生錯誤")
+    message = request.args.get("message", "發生錯誤")
     return render_template("error.html", message=message)
 
 
