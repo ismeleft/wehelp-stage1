@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>錯誤頁面</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            }
+        .banner{
+            display: flex;
+            background-color: rgb(69, 88, 82);
+            height: 20vh;
+            justify-content: center;
+            align-items: center;
+
+        }
+        h2{
+            color: white;
+            letter-spacing: 5px;
+        }
+        .errormsg{
+            margin: 0 auto;
+            width: 30vw;
+            margin-top: 30px;
+            text-align: center;
+        }
+        h3{
+            color: rgb(82, 79, 79);
+            letter-spacing: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h2>歡迎光臨我的網站</h2>
+    </div>
+    <div class="errormsg">
+        <h3>發生錯誤啦，請聯繫客服！</h3>
+        <br>
+        <div>{{message}}</div>
+    
+    </div>
+    
+</body>
+</html>

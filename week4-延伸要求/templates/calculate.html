@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算結果</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .banner{
+            display: flex;
+            background-color: rgb(69, 88, 82);
+            height: 20vh;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+            }
+        h2{
+            color: white;
+            letter-spacing: 3px;
+            }
+        .data{
+            width: 30vw;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid gray;
+        }
+        .result{
+            padding: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(102, 101, 101);
+        }    
+
+
+    </style>
+    
+</head>
+<body>
+    <div class="banner">
+        <h2>歡迎光臨我的網站</h2>
+    </div>
+    <div class="data">
+        <h3>您的計算結果</h3>
+        <div id="result">{{result}}</div>
+        <a href="/">回到首頁</a>
+    </div>
+
+    
+</body>
+</html>
