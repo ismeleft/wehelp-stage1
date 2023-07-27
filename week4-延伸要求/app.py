@@ -47,8 +47,6 @@ def signout():
     del session["account"]
     return redirect("/")
 
-# 計算正整數的平方
-
 
 @app.route("/square/<int:num>")
 def square(num):

@@ -90,13 +90,14 @@
         <div class="title">
             <h3>歡迎使用正整數平方計算機</h3>
         </div>    
-        <form action="/square" onsubmit="return submitForm()">
+        <form action={{ url_for('square',num=0)}} onsubmit="return submitForm()">
             <input type="text" id="numberInput">
             <input type="submit" value="計算">
         </form>
             
     </div>
     <script>
+        //是否核取checkbox
         let check = document.getElementById("agree");
         let loginBtn =document.getElementById("loginBtn");
         loginBtn.addEventListener("click",()=>{
@@ -106,18 +107,19 @@
                 alert("請勾選同意條款！")
             }
         })
+        
         function submitForm() {
             let number = document.getElementById('numberInput').value;
 
-            // Validation
+            // 驗證是否為正整數
             if (!Number.isInteger(Number(number)) || Number(number) <= 0) {
                 alert("請輸入正整數！");
                 return false;
             }
 
-            // Redirection
+            // 定義路徑
             window.location.href = "/square/" + number;
-            return false; // 防止表單預設提交行為
+            return false; 
         }
 
 
