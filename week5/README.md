@@ -12,6 +12,7 @@
 
 4.使用 SELECT 指令取得 member 資料表中第 2 到第 4 筆共三筆資料，並按照 time 欄
 位，由近到遠排序。( 並非編號 2、3、4 的資料，而是排序後的第 2 ~ 4 筆資料 )
+![image](https://github.com/ismeleft/wehelp-stage1/blob/main/week5/%E6%AD%A5%E9%A9%9F%E6%88%AA%E5%9C%96/3-4.png)
 
 5.使用 SELECT 指令取得欄位 username 是 test 的會員資料。
 ![image](https://github.com/ismeleft/wehelp-stage1/blob/main/week5/%E6%AD%A5%E9%A9%9F%E6%88%AA%E5%9C%96/3-5.png)
@@ -25,6 +26,7 @@
 
 ## 要求四：SQL Aggregate Functions
 1.取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。
+
 ![image](https://github.com/ismeleft/wehelp-stage1/blob/main/week5/%E6%AD%A5%E9%A9%9F%E6%88%AA%E5%9C%96/4-1.png)
 
 2.取得 member 資料表中，所有會員 follower_count 欄位的總和。
