@@ -80,13 +80,11 @@ function loadData(startIdx) {
     fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response){
         return response.json();
     }).then(function(data){
-        let main = document.querySelector("main"); // 使用 querySelector 取得已存在的 main 元素
-        let down = document.querySelector(".down"); // 使用 querySelector 取得已存在的 down 元素
+        let main = document.querySelector("main");
+        let down = document.querySelector(".down"); 
 
-        // 讀取到資料後要做的事，把原本的html重新建立，對上第一週的css
+        
         for (let index = startIdx; index < startIdx + 12 && index < data.result.results.length; index++) {
-            // 遍歷下方12張
-
             let card = document.createElement("div");
             down.appendChild(card);
             card.setAttribute("class", "card");
@@ -112,11 +110,11 @@ function loadData(startIdx) {
 };
 
 let load_btn = document.querySelector(".btn");
-let startIdx = 15; // 設定起始索引
+let startIdx = 15; 
 
 load_btn.addEventListener("click", () => {
-    loadData(startIdx); // 每按一次按鈕，載入下一組12張圖片
-    startIdx += 12; // 更新下一次的起始索引
+    loadData(startIdx); 
+    startIdx += 12;
 });
 
 //這裡是漢堡圖應用
