@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁：登入頁面</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            
+        }
+        div.banner{
+            display: flex;
+            background-color: rgb(69, 88, 82);
+            height: 20vh;
+            justify-content: center;
+            align-items: center;
+
+        }
+        h2{
+            color: white;
+            letter-spacing: 3px;
+        }
+        .signup{
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 30vw;
+            border: 1px solid gray;
+            text-align: center;
+        }
+        .login{
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 30vw;
+            border: 1px solid gray;
+            text-align: center;
+
+        }
+        .title{
+            padding: 10px;
+            background-color: rgb(97, 114, 109);
+            margin-bottom: 20px;    
+        }
+        h3{
+            color: white;
+            letter-spacing: 5px;
+        }
+        p{
+            font-size: 1rem;
+            color:rgb(82, 82, 82);
+        }
+        form{
+            margin: 20px 0px;
+        }
+        button{
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h2>歡迎光臨我的網站</h2>
+    </div>
+
+    <div class="signup">
+        <div class="title">
+            <h3>歡迎光臨，請註冊登入系統</h3>
+        </div>
+        <p>註冊帳號</p>
+        <form action="/signup" method="POST" onsubmit="return checkNull()">
+            姓名 <input type="text" name="name" id="name"><br>
+            <span id="nameError"></span>
+            <br><br>
+            帳號 <input type="text" name="username" id="username"><br>
+            <span id="usernameError"></span>
+            <br><br>
+            密碼 <input type="password" name="password" id="password"><br>
+            <span id="passwordError"></span>
+            <br><br>
+            <button id="signupBtn" type="submit">註冊</button>
+        </form>    
+    </div>
+
+    <div class="login">
+        <br>
+        <p>登入系統</p>
+        <form action="/signin", method="POST" onsubmit="return checkLoginNull()">
+            帳號 <input type="text" name="username" id="loginUsername"><br>
+            <span id="loginUsernameError"></span>
+            <br><br>
+            密碼 <input type="password" name="password" id="loginPassword"><br>
+            <span id="loginPasswordError"></span>
+            <br><br>
+            <button id="loginBtn" type="submit">登入</button>
+        </form>
+        
+    </div>
+    <script>
+        function checkNull() {
+            let nameInput = document.getElementById("name");
+            let usernameInput = document.getElementById("username");
+            let passwordInput = document.getElementById("password");
+
+            let name = nameInput.value;
+            let username = usernameInput.value;
+            let password = passwordInput.value;
+
+            let nameError = document.getElementById("nameError");
+            let usernameError = document.getElementById("usernameError");
+            let passwordError = document.getElementById("passwordError");
+
+            nameError.innerHTML = ""; 
+            usernameError.innerHTML = "";
+            passwordError.innerHTML = "";
+
+            let hasError =false;
+
+            if (name === "") {
+                nameError.innerHTML = "⚠️ 請輸入姓名";
+                hasError = true;
+            }
+
+            if (username === "") {
+                usernameError.innerHTML = "⚠️ 請輸入帳號";
+                hasError = true;
+            }
+
+            if (password === "") {
+                passwordError.innerHTML = "⚠️ 請輸入密碼";
+                hasError = true;
+            }
+
+            if (hasError) {
+                return false; 
+            } else {
+                return true; 
+            }
+        }
+        
+        function checkLoginNull(){
+            let usernameInput = document.getElementById("loginUsername");
+            let passwordInput = document.getElementById("loginPassword");
+
+            let username = usernameInput.value;
+            let password = passwordInput.value;
+
+            let loginUsernameError =document.getElementById("loginUsernameError");
+            let loginPasswordError = document.getElementById("loginPasswordError");
+
+            loginUsernameError.innerHTML="";
+            loginPasswordError.innerHTML="";
+
+            let error =false;
+
+
+            if(username === ""){
+                loginUsernameError.innerHTML="⚠️ 請輸入帳號";
+                error = true;
+            }
+            if(password === ""){
+                loginPasswordError.innerHTML="⚠️ 請輸入密碼"
+                error =true;
+            }
+
+            if(error){
+                return false;
+            }else{
+                return true;
+            }
+
+        }
+
+
+    </script>
+    
+
+
+</body>
+</html>
