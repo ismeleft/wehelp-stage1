@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員頁面</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            
+        }
+        div.banner{
+            display: flex;
+            background-color: rgb(69, 88, 82);
+            height: 20vh;
+            justify-content: center;
+            align-items: center;
+
+        }
+        h2{
+            color: white;
+            letter-spacing: 3px;
+        }
+        div.success{
+            margin: 0 auto;
+            margin-top: 50px;
+            width: 30vw;
+            border: 1px solid gray;
+            text-align: center;
+
+        }
+        .title{
+            padding: 10px;
+            background-color: rgb(97, 114, 109);
+        }
+        .leavemessage{
+            margin: 20px 0px;
+
+        }
+        h3{
+            color: white;
+            letter-spacing: 5px;
+        }
+        p{
+            font-size: 1rem;
+            color:rgb(82, 82, 82);
+        }
+        a{
+            text-decoration: none;
+            color: rgb(110, 110, 110);
+        }
+   
+        </style>
+
+</head>
+<body>
+    <div class="banner">
+        <h2>歡迎光臨我的網站</h2>
+    </div>
+    <div class="success">
+        <div class="title">
+            <h3>會員頁面</h3>
+        </div>
+        <br>    
+        <p>恭喜{{name}}，成功登入系統</p>
+        <br>
+        <a href="/signout">登出系統</a>
+        <hr>
+        <div class="leavemessage">
+            <p>會員留言板</p>
+            <br>
+            <form action="/createMessage" method="POST" >
+                留言 <input type="text" name=message>
+                <button type="submit">送出</button>                
+            </form>
+        </div>
+        <hr>
+        <div class="message">
+            {% for msg in message %}
+            <div data-id="{{ msg.id }}">
+                {{ msg.username }}: {{ msg.content }}
+                {% if msg.username == session["username"] %}
+                <button class="delete" onclick="confirmDelete()">X</button>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <script>
+            function confirmDelete(msgId) {
+                const yes = confirm("確定要刪除嗎？");
+                
+                if (yes) {
+                    let msgId = event.target.parentElement.dataset.id;
+
+                    fetch("/deleteMessage", {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'text/plain'
+                        },
+                        body: msgId.toString() 
+                    })
+                    .then(res => res.text())
+                    .then(res => {
+                        if (res === "ok") {
+                            window.location.href = "/member";
+                        }
+                    });
+                }
+            }
+        </script>
+</body>
+</html>
