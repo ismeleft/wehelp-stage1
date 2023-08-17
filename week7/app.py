@@ -70,27 +70,21 @@ def signin():
         return redirect("/error?message=帳號或密碼輸入錯誤")
 
 
-@app.route("/member", methods=["GET", "POST"])
+@app.route("/member")
 def member():
-    if request.method == "GET":
-        if "username" in session:
-            name = session["name"]
+    if "username" in session:
+        name = session["name"]
 
-            conn = connect_database()
-            cursor = conn.cursor(dictionary=True)
+        conn = connect_database()
+        cursor = conn.cursor(dictionary=True)
 
-            query = "SELECT member.name,message.id,message.content FROM member INNER JOIN message ON member.id=message.member_id ORDER BY message.time DESC;"
-            cursor.execute(query)
-            messages = cursor.fetchall()
-            conn.close()
-            return render_template("member.html", name=name, message=messages)
-        else:
-            return redirect("/")
-
-    if request.method == "POST":
-        new_name = request.data.decode("utf-8")
-        session["name"] = new_name
-        return "ok"
+        query = "SELECT member.name,message.id,message.content FROM member INNER JOIN message ON member.id=message.member_id ORDER BY message.time DESC;"
+        cursor.execute(query)
+        messages = cursor.fetchall()
+        conn.close()
+        return render_template("member.html", name=name, message=messages)
+    else:
+        return redirect("/")
 
 
 @app.route("/api/member", methods=["GET", "PATCH"])
@@ -128,6 +122,7 @@ def find_member():
             query = "UPDATE member SET name=%s WHERE username=%s "
             cursor.execute(query, (new_name, username))
             conn.commit()
+            session["name"] = new_name
             conn.close()
             return {"ok": "true"}
         else:
