@@ -170,13 +170,6 @@
                     revisedResult.innerHTML="更新成功";
                     const namePlaceholder = document.getElementById("namePlaceholder");
                     namePlaceholder.textContent = revised_usernameInput;
-                    fetch("/member", {
-                        method: "POST",
-                        headers: {
-                            'Content-Type': 'text/plain'
-                        },
-                        body: revised_usernameInput
-                    });
                 }).catch(error=>{
                     console.log(error);
                     revisedResult.innerHTML="更新失敗";
